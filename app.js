@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
@@ -25,6 +26,15 @@ app.engine('.hbs', exphbs.engine( {
     })
 )
 app.set('view engine', '.hbs')
+
+
+
+// Static folder 
+app.use(express.static(path.join(__dirname, 'public')))
+
+// Routes 
+app.use('/', require('./routes/index'))
+app.use('/dashborad', require('./routes/index'))
 
 
 const PORT = process.env.PORT || 5000
