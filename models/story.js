@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const StorySchema = new mongoose.Schema({ 
-    googleId: {
+    title: {
         type: String, 
         required: true, 
         trim: true, 
@@ -18,6 +18,9 @@ const StorySchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User',
+        //!Change: this field ashould be required because the app wil break if the user is not present 
+        required: true,
+
     }, 
     image: {
         type: String, 
