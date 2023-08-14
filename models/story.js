@@ -22,9 +22,6 @@ const StorySchema = new mongoose.Schema({
         required: true,
 
     }, 
-    image: {
-        type: String, 
-    }, 
     createdAt: { 
         type: Date, 
         default: Date.now 
